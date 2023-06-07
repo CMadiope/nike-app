@@ -1,5 +1,5 @@
 export default {
-  name: 'name',
+  name: 'product',
   title: 'Product',
   type: 'document',
   fields: [
@@ -15,6 +15,11 @@ export default {
     {
       name: 'name',
       title: 'Name',
+      type: 'string',
+    },
+    {
+      name: 'colour',
+      title: 'Colours Shown',
       type: 'string',
     },
     {
