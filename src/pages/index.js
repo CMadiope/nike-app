@@ -2,6 +2,7 @@ import Carousel from "@/components/Carousel";
 import { client } from "../lib/client";
 import hero from "../../public/hero.jpeg";
 import Explore from "@/components/Explore";
+import DiscoverApps from "@/components/DiscoverApps";
 
 export default function Home({ products }) {
   //console.log(products);
@@ -36,6 +37,7 @@ export default function Home({ products }) {
         <Carousel products={products} />
       </div>
       <Explore />
+      <DiscoverApps/>
     </main>
   );
 }
