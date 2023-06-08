@@ -40,9 +40,9 @@ const Navbar = () => {
   return (
     <nav className='bg-white'>
       <div className='hidden lg:flex items-center justify-between bg-[#F5F5F5] px-16 py-[8px]'>
-        <div>
+        <Link href='/'>
           <Image src={jump} alt='nike-jump-man' />
-        </div>
+        </Link>
         <div className='text-xs flex gap-4 items-center'>
           <p>Find a Store</p>
           <p>|</p>
@@ -54,9 +54,9 @@ const Navbar = () => {
         </div>
       </div>
       <div className='flex justify-between items-center px-6 lg:px-16 py-[10px]'>
-        <div>
+        <Link href='/'>
           <Image src={logo} alt='nike-logo' />
-        </div>
+        </Link>
         <div>
           <ul className='text-md hidden lg:flex gap-4'>
             <li>
@@ -108,19 +108,7 @@ const Navbar = () => {
         />
       </div>
       <div className='bg-[#F5F5F5] border-b-2 h-[50px] w-full mt-2'></div>
-      <div className='py-20'>
-        <h1 className='uppercase font-[800] text-[48px] text-center lg:text-[72px] text-[#111]'>
-          national team collection
-        </h1>
-        <p className='text-lg md:text-xl md:px-20 text-black/80 px-8 text-center'>
-          Team pride has never looked so fresh. Show the world what the future
-          of football looks like in the 2023 Nike National Team Kit &
-          Collections
-        </p>
-        <div className='flex justify-center py-8'>
-          <button className='text-lg text-white bg-black px-6 py-2 rounded-full hover:bg-black/60'>Shop</button>
-        </div>
-      </div>
+     
 
       <div
         className={`fixed lg:hidden h-screen top-0 right-0 z-20 bg-white w-[300px]  overflow-y-scroll duration-300

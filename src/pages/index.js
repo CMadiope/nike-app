@@ -7,7 +7,21 @@ export default function Home({ products }) {
 
   return (
     <main>
-    
+      <div className='py-20'>
+        <h1 className='uppercase font-[800] text-[48px] text-center lg:text-[72px] text-[#111]'>
+          national team collection
+        </h1>
+        <p className='text-lg md:text-xl md:px-20 text-black/80 px-8 text-center'>
+          Team pride has never looked so fresh. Show the world what the future
+          of football looks like in the 2023 Nike National Team Kit &
+          Collections
+        </p>
+        <div className='flex justify-center py-8'>
+          <button className='text-lg text-white bg-black px-6 py-2 rounded-full hover:bg-black/60'>
+            Shop
+          </button>
+        </div>
+      </div>
       <section
         style={{
           backgroundImage: `url(${hero.src})`,
@@ -16,8 +30,7 @@ export default function Home({ products }) {
         }}
         className='min-h-screen bg-center bg-cover bg-no-repeat'
       ></section>
-    
-      
+
       <div className='p-16'>
         <Carousel products={products} />
       </div>
