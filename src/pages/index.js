@@ -1,17 +1,18 @@
 import Carousel from "@/components/Carousel";
 import { client } from "../lib/client";
 import hero from "../../public/hero.jpeg";
+import Explore from "@/components/Explore";
 
 export default function Home({ products }) {
   //console.log(products);
 
   return (
     <main>
-      <div className='py-20'>
+      <div className='py-20 px-6 lg:px-16'>
         <h1 className='uppercase font-[800] text-[48px] text-center lg:text-[72px] text-[#111]'>
           national team collection
         </h1>
-        <p className='text-lg md:text-xl md:px-20 text-black/80 px-8 text-center'>
+        <p className='text-lg md:text-xl  text-black/80  text-center'>
           Team pride has never looked so fresh. Show the world what the future
           of football looks like in the 2023 Nike National Team Kit &
           Collections
@@ -31,9 +32,10 @@ export default function Home({ products }) {
         className='min-h-screen bg-center bg-cover bg-no-repeat'
       ></section>
 
-      <div className='p-16'>
+      <div className='py-16 px-6 lg:px-16'>
         <Carousel products={products} />
       </div>
+      <Explore />
     </main>
   );
 }
