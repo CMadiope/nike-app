@@ -32,9 +32,9 @@ const Carousel = ({ products }) => {
       modules={[Navigation]}
       className='mySwiper'
     >
-      {products?.map((product) => (
+      {products?.slice(0, 6).map((product) => (
         <SwiperSlide key={product.id}>
-          <Product product={product} />
+          <Product product={product} key={product.id} />
         </SwiperSlide>
       ))}
     </Swiper>

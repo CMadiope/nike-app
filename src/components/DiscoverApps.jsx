@@ -5,11 +5,17 @@ import ntc from "../../public/static/ntc.jpeg";
 import ntcSm from "../../public/static/ntc-sm.jpeg";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const DiscoverApps = () => {
+  const router = useRouter();
+
   return (
     <div className='pb-20 px-6 lg:px-16 flex flex-col md:grid md:grid-cols-2 gap-5'>
-      <Link href='nike-app' className='relative'>
+      <div
+        className='relative cursor-pointer'
+        onClick={() => router.push("/nike-app")}
+      >
         <Image src={nikeApp} alt='/' className='hidden lg:block' />
         <Image src={nikeAppSm} alt='/' className='lg:hidden ' />
         <div className='absolute bottom-10 text-lg left-10 text-white '>
@@ -21,8 +27,11 @@ const DiscoverApps = () => {
             Nike App
           </Link>
         </div>
-      </Link>
-      <Link href='ntc-app' className='relative'>
+      </div>
+      <div
+        onClick={() => router.push("/ntc-app")}
+        className='relative cursor-pointer'
+      >
         <Image src={ntc} alt='/' className='hidden lg:block' />
         <Image src={ntcSm} alt='/' className='lg:hidden ' />
         <div className='absolute bottom-10 text-lg left-10 text-white '>
@@ -36,7 +45,7 @@ const DiscoverApps = () => {
             Nike Training Club
           </Link>
         </div>
-      </Link>
+      </div>
     </div>
   );
 };

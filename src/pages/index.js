@@ -3,12 +3,16 @@ import { client } from "../lib/client";
 import hero from "../../public/hero.jpeg";
 import Explore from "@/components/Explore";
 import DiscoverApps from "@/components/DiscoverApps";
+import Head from "next/head";
 
 export default function Home({ products }) {
   //console.log(products);
 
   return (
     <main>
+    <Head>
+      <title>Nike.Just.Do.It</title>
+    </Head>
       <div className='py-20 px-6 lg:px-16'>
         <h1 className='uppercase font-[800] text-[48px] text-center lg:text-[72px] text-[#111]'>
           national team collection
@@ -43,7 +47,7 @@ export default function Home({ products }) {
 }
 
 export const getServerSideProps = async () => {
-  const query = `*[_type == 'product']`;
+  const query = `*[_type == 'product'][0...6]`;
   const products = await client.fetch(query);
 
   //console.log(products);

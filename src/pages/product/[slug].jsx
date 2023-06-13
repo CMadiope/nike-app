@@ -62,7 +62,7 @@ const ProductDetail = ({ product, products }) => {
           </div>
         </div>
       </div>
-      <div className='py-8'>
+      <div className='py-16 px-6 lg:px-16'>
         <h3 className='text-xl py-5 font-semibold'>You Might Also Like</h3>
         <Carousel products={products} />
       </div>

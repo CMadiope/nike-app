@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Image from "next/image";
 import ntcHero from "../../public/static/ntc-hero.jpeg";
 import ntcHeroSm from "../../public/static/ntc-hero-sm.jpeg";
@@ -17,6 +18,9 @@ import achieveSm from "../../public/static/achieve-sm.png";
 const NikeTrainingApp = () => {
   return (
     <div>
+      <Head>
+        <title>Nike Training Club</title>
+      </Head>
       <Image src={ntcHeroSm} alt='/' className='md:hidden' />
       <Image src={ntcHero} alt='/' className='hidden md:block' />
       <div className='pb-20 pt-16 px-6 lg:px-16 text-[#111]'>
