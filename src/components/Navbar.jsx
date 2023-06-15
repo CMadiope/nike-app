@@ -70,9 +70,7 @@ const Navbar = ({ nav, setNav }) => {
             <li>
               <Link href='/kids'>Kids</Link>
             </li>
-            <li>
-              <Link href='/sale'>Sale</Link>
-            </li>
+            
           </ul>
         </div>
         <div className='flex gap-4 items-center'>
@@ -157,14 +155,7 @@ const Navbar = ({ nav, setNav }) => {
             <h4>Kids</h4>
             <AiOutlineRight />
           </Link>
-          <Link
-            href='/sale'
-            className='flex justify-between items-center text-xl font-semibold'
-            onClick={handleNav}
-          >
-            <h4>Sale</h4>
-            <AiOutlineRight />
-          </Link>
+          
           <div className='pt-12'>
             <h3 className=' text-xl text-gray-500'>
               Become a Nike Member for the best products,inspiration and stories
