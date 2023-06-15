@@ -14,8 +14,8 @@ import { BiSearch, BiHelpCircle } from "react-icons/bi";
 import { RxCross1 } from "react-icons/rx";
 import { BsBox2 } from "react-icons/bs";
 
-const Navbar = () => {
-  const [nav, setNav] = useState(false);
+const Navbar = ({ nav, setNav }) => {
+
   const [clickOutSide, setClickOutSide] = useState(false);
   const navRef = React.useRef();
 
@@ -108,7 +108,6 @@ const Navbar = () => {
         />
       </div>
       <div className='bg-[#F5F5F5] border-b-2 h-[50px] w-full mt-2'></div>
-     
 
       <div
         className={`fixed lg:hidden h-screen top-0 right-0 z-20 bg-white w-[300px]  overflow-y-scroll duration-300
