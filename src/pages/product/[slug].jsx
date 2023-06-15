@@ -21,7 +21,7 @@ const ProductDetail = ({ product, products }) => {
             <img
               src={urlFor(image && image[index])}
               alt={name}
-              className='rounded-[15px] bg-[#ebebeb] w-[400px] h-[400px] cursor-pointer transition ease-in-out duration-150'
+              className='rounded-[15px] bg-[#ebebeb] w-[400px] h-[450px] cursor-pointer transition ease-in-out duration-150'
             />
           </div>
           <div className='flex gap-[10px] mt-[20px]'>

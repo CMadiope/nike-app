@@ -13,10 +13,12 @@ import { IoBagOutline } from "react-icons/io5";
 import { BiSearch, BiHelpCircle } from "react-icons/bi";
 import { RxCross1 } from "react-icons/rx";
 import { BsBox2 } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 const Navbar = ({ nav, setNav }) => {
   const [clickOutSide, setClickOutSide] = useState(false);
   const navRef = React.useRef();
+  const quantity = useSelector((state) => state.cart.totalQuantity);
 
   const handleNav = () => {
     setNav(!nav);
@@ -70,7 +72,6 @@ const Navbar = ({ nav, setNav }) => {
             <li>
               <Link href='/kids'>Kids</Link>
             </li>
-            
           </ul>
         </div>
         <div className='flex gap-4 items-center'>
@@ -82,12 +83,21 @@ const Navbar = ({ nav, setNav }) => {
               placeholder='Search'
             />
           </div>
-          <div className='hidden lg:block hover:bg-[#F5F5F5] p-2 rounded-full'>
+          <Link
+            href='/favourites'
+            className='hidden lg:block hover:bg-[#F5F5F5] p-2 rounded-full'
+          >
             <AiOutlineHeart size={20} />
-          </div>
-          <div className='hover:bg-[#F5F5F5] p-2 rounded-full'>
+          </Link>
+          <Link
+            href='/cart'
+            className='hover:bg-[#F5F5F5] p-2 rounded-full relative'
+          >
             <IoBagOutline size={20} />
-          </div>
+            <span className='bg-red-600 text-white text-xs w-4 h-4 rounded-full absolute -top-1 -right-px flex justify-center'>
+              {quantity || 0}
+            </span>
+          </Link>
           <div
             className='lg:hidden hover:bg-[#F5F5F5] p-2 rounded-full cursor-pointer'
             onClick={handleClickInside}
@@ -155,7 +165,7 @@ const Navbar = ({ nav, setNav }) => {
             <h4>Kids</h4>
             <AiOutlineRight />
           </Link>
-          
+
           <div className='pt-12'>
             <h3 className=' text-xl text-gray-500'>
               Become a Nike Member for the best products,inspiration and stories
