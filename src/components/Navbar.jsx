@@ -15,7 +15,6 @@ import { RxCross1 } from "react-icons/rx";
 import { BsBox2 } from "react-icons/bs";
 
 const Navbar = ({ nav, setNav }) => {
-
   const [clickOutSide, setClickOutSide] = useState(false);
   const navRef = React.useRef();
 
@@ -129,6 +128,7 @@ const Navbar = ({ nav, setNav }) => {
           <Link
             href='/new'
             className='flex justify-between items-center text-xl font-semibold'
+            onClick={handleNav}
           >
             <h4>New & Featured</h4>
             <AiOutlineRight />
@@ -136,6 +136,7 @@ const Navbar = ({ nav, setNav }) => {
           <Link
             href='/men'
             className='flex justify-between items-center text-xl font-semibold'
+            onClick={handleNav}
           >
             <h4>Men</h4>
             <AiOutlineRight />
@@ -143,6 +144,7 @@ const Navbar = ({ nav, setNav }) => {
           <Link
             href='/women'
             className='flex justify-between items-center text-xl font-semibold'
+            onClick={handleNav}
           >
             <h4>Women</h4>
             <AiOutlineRight />
@@ -150,6 +152,7 @@ const Navbar = ({ nav, setNav }) => {
           <Link
             href='/kids'
             className='flex justify-between items-center text-xl font-semibold'
+            onClick={handleNav}
           >
             <h4>Kids</h4>
             <AiOutlineRight />
@@ -157,6 +160,7 @@ const Navbar = ({ nav, setNav }) => {
           <Link
             href='/sale'
             className='flex justify-between items-center text-xl font-semibold'
+            onClick={handleNav}
           >
             <h4>Sale</h4>
             <AiOutlineRight />
