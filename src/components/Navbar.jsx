@@ -146,6 +146,27 @@ const Navbar = ({ nav, setNav }) => {
           <RxCross1 size={20} />
         </div>
         <div className='py-6 px-10 flex gap-6 flex-col'>
+          {session && (
+            <Link
+              href='/profile'
+              className='flex justify-between items-center text-xl font-semibold'
+              onClick={handleNav}
+            >
+              <div className='flex gap-2'>
+                <Image
+                  src={session.user.image}
+                  alt={session.user.name}
+                  width={30}
+                  height={30}
+                  className='rounded-full'
+                />
+                <p>Hi, {session.user.name}</p>
+              </div>
+
+              <AiOutlineRight />
+            </Link>
+          )}
+
           <Link
             href='/new'
             className='flex justify-between items-center text-xl font-semibold'
