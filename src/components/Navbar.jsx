@@ -94,7 +94,7 @@ const Navbar = ({ nav, setNav }) => {
             className='hover:bg-[#F5F5F5] p-2 rounded-full relative'
           >
             <IoBagOutline size={20} />
-            <span className='bg-red-600 text-white text-xs w-4 h-4 rounded-full absolute -top-1 -right-px flex justify-center'>
+            <span className='bg-red-600 text-white text-xs w-4 h-4 rounded-full absolute top-1 right-px flex justify-center'>
               {quantity || 0}
             </span>
           </Link>

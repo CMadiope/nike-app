@@ -15,6 +15,7 @@ export default function App({ Component, pageProps }) {
       <PersistGate loading={null} persistor={persistor}>
         <Layout>
           <Component {...pageProps} />
+          <ToastContainer />
         </Layout>
       </PersistGate>
     </Provider>

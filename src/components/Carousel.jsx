@@ -33,8 +33,8 @@ const Carousel = ({ products }) => {
       className='mySwiper'
     >
       {products?.slice(0, 6).map((product) => (
-        <SwiperSlide key={product.id}>
-          <Product product={product} key={product.id} />
+        <SwiperSlide key={product._id}>
+          <Product product={product}  />
         </SwiperSlide>
       ))}
     </Swiper>

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import favouriteReducer from "./favouriteSlice";
 import cartReducer from "./cartSlice";
+import bookmarkReducer from './bookmarkSlice'
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
@@ -8,7 +8,7 @@ import thunk from "redux-thunk";
 
 const reducers = combineReducers({
   cart: cartReducer,
-  favourite: favouriteReducer,
+  bookmark: bookmarkReducer,
 });
 
 const persistConfig = {
@@ -23,4 +23,4 @@ const store = configureStore({
   middleware: [thunk],
 });
 
-export default store; 
+export default store;

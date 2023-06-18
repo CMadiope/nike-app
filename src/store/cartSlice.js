@@ -3,51 +3,56 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cartItems: [],
   totalQuantity: 0,
+  totalPrice: 0,
+  
 };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    clearCart: (state) => {
+    clearCart: (state, action) => {
       state.cartItems = [];
+      state.totalQuantity = 0;
+      state.totalPrice = 0;
     },
-    addToCart(state, { payload }) {
-      const newItem = payload;
-
-      const duplicateItem = state.cartItems.find(
-        (item) => item.id === newItem.id
-      );
-      if (duplicateItem) {
-        duplicateItem.quantity++;
-        duplicateItem.totalPrice += newItem.price;
-        state.totalQuantity++;
+    addToCart(state, action) {
+      if (
+        state.cartItems.findIndex((item) => item._id === action.payload._id) !==
+        -1
+      ) {
+        const index = state.cartItems.findIndex(
+          (item) => item._id === action.payload._id
+        );
+        state.cartItems[index].quantity++;
       } else {
-        state.cartItems.push({
-          id: newItem.id,
-          price: newItem.price,
-          quantity: 1,
-          totalPrice: newItem.price,
-          title: newItem.title,
-          image: newItem.image,
-        });
-        state.totalQuantity++;
+        action.payload.quantity = 1;
+        state.cartItems.push(action.payload);
       }
+      state.totalPrice = Number(
+        (state.totalPrice + action.payload.price).toFixed(2)
+      );
+      state.totalQuantity++;
     },
-  },
-  removeFromCart(state, { payload }) {
-    const id = payload;
-    const duplicatedItem = state.cartItems.find((item) => item.id === id);
-    if (duplicatedItem.quantity === 1) {
-      state.cartItems = state.cartItems.filter((item) => item.id !== id);
+
+    removeFromCart(state, action) {
+      const results = state.cartItems.find(
+        (item) => item._id === action.payload._id
+      );
+
+      if (results.quantity === 1) {
+        state.cartItems = state.cartItems.filter(
+          (item) => item._id !== action.payload._id
+        );
+      } else {
+        results.quantity--;
+      }
       state.totalQuantity--;
-    } else {
-      duplicatedItem.quantity--;
-      duplicatedItem.totalPrice -= duplicatedItem.price;
-      state.totalQuantity--;
-    }
+      state.totalPrice = Number((state.totalPrice - results.price).toFixed(2));
+    },
+    
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;

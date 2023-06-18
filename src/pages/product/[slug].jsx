@@ -3,10 +3,31 @@ import { urlFor } from "@/lib/client";
 import { client } from "@/lib/client";
 import { AiOutlineHeart } from "react-icons/ai";
 import Carousel from "@/components/Carousel";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/store/cartSlice";
+import { addToBookmark } from "@/store/bookmarkSlice";
+import { toast } from "react-toastify";
 
 const ProductDetail = ({ product, products }) => {
-  const { image, name, description, price, category, colour } = product;
+  const { image, name, description, price, category, colour, id } = product;
   const [index, setIndex] = useState(0);
+  const dispatch = useDispatch();
+
+  const addCart = () => {
+    dispatch(addToCart(product));
+    toast.success("The Product has been added to your Bag", {
+      autoClose: 200,
+    });
+    toast.POSITION.BOTTOM_LEFT;
+  };
+
+  const addFav = () => {
+    dispatch(addToBookmark(product));
+    toast.success("The Product has been added to your Favourites", {
+      autoClose: 200,
+    });
+    toast.POSITION.BOTTOM_LEFT;
+  };
 
   return (
     <div>
@@ -52,10 +73,16 @@ const ProductDetail = ({ product, products }) => {
             <p className='pt-2'>Colours Shown: {colour}</p>
           </div>
           <div className='flex items-center flex-col md:flex-row gap-6 text-lg py-5'>
-            <button className='rounded-full text-white bg-black w-full py-4 hover:bg-black/70'>
+            <button
+              className='rounded-full text-white bg-black w-full py-4 hover:bg-black/70'
+              onClick={addCart}
+            >
               Add to Bag
             </button>
-            <button className='flex items-center rounded-full border w-full justify-center gap-2 py-4 hover:border-black'>
+            <button
+              className='flex items-center rounded-full border w-full justify-center gap-2 py-4 hover:border-black'
+              onClick={addFav}
+            >
               <p>Favourite</p>
               <AiOutlineHeart />
             </button>
