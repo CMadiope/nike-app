@@ -36,6 +36,9 @@ const Profile = () => {
             <h4 className='py-3 text-lg opacity-70'>
               Nike Member Since {date}
             </h4>
+            <div>
+              <button className='bg-red-500 text-white rounded-full px-4 py-2' onClick={()=>signOut()}>Sign Out</button>
+            </div>
           </div>
         </div>
 

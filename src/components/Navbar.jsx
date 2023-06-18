@@ -51,8 +51,6 @@ const Navbar = ({ nav, setNav }) => {
           <p>|</p>
           <p>Help</p>
           <p>|</p>
-          <p>Join Us</p>
-          <p>|</p>
           {session ? (
             <Link href='/profile' className='flex items-center gap-4'>
               <p>Hi, {session.user.name}</p>
