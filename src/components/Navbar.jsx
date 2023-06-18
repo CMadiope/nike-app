@@ -149,15 +149,15 @@ const Navbar = ({ nav, setNav }) => {
           {session && (
             <Link
               href='/profile'
-              className='flex justify-between items-center text-xl font-semibold'
+              className='flex justify-between items-center text-sm font-semibold'
               onClick={handleNav}
             >
               <div className='flex gap-2'>
                 <Image
                   src={session.user.image}
                   alt={session.user.name}
-                  width={30}
-                  height={30}
+                  width={20}
+                  height={20}
                   className='rounded-full'
                 />
                 <p>Hi, {session.user.name}</p>
