@@ -163,7 +163,7 @@ const Navbar = ({ nav, setNav }) => {
                 <p>Hi, {session.user.name}</p>
               </div>
 
-              <AiOutlineRight />
+              <AiOutlineRight className='text-xl' />
             </Link>
           )}
 
@@ -197,6 +197,14 @@ const Navbar = ({ nav, setNav }) => {
             onClick={handleNav}
           >
             <h4>Kids</h4>
+            <AiOutlineRight />
+          </Link>
+          <Link
+            href='/favourites'
+            className='flex justify-between items-center text-xl font-semibold'
+            onClick={handleNav}
+          >
+            <h4>Favourites</h4>
             <AiOutlineRight />
           </Link>
 
