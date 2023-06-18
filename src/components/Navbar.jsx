@@ -14,8 +14,10 @@ import { BiSearch, BiHelpCircle } from "react-icons/bi";
 import { RxCross1 } from "react-icons/rx";
 import { BsBox2 } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Navbar = ({ nav, setNav }) => {
+  const { data: session } = useSession();
   const [clickOutSide, setClickOutSide] = useState(false);
   const navRef = React.useRef();
   const quantity = useSelector((state) => state.cart.totalQuantity);
@@ -51,7 +53,20 @@ const Navbar = ({ nav, setNav }) => {
           <p>|</p>
           <p>Join Us</p>
           <p>|</p>
-          <p>Sign In</p>
+          {session ? (
+            <Link href='/profile' className='flex items-center gap-4'>
+              <p>Hi, {session.user.name}</p>
+              <Image
+                src={session.user.image}
+                alt={session.user.name}
+                width={50}
+                height={50}
+                className='rounded-full'
+              />
+            </Link>
+          ) : (
+            <Link href='/login'>Sign In</Link>
+          )}
         </div>
       </div>
       <div className='flex justify-between items-center px-6 lg:px-16 py-[10px]'>
