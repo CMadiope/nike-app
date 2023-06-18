@@ -186,10 +186,16 @@ const Navbar = ({ nav, setNav }) => {
             </h3>
           </div>
           <div className='flex gap-2 text-lg'>
-            <button className='rounded-full px-5 py-2 bg-black text-white hover:bg-black/70'>
+            <button
+              className='rounded-full px-5 py-2 bg-black text-white hover:bg-black/70'
+              onClick={() => signIn()}
+            >
               Join Us
             </button>
-            <button className='rounded-full border px-5 py-2 hover:border-black'>
+            <button
+              className='rounded-full border px-5 py-2 hover:border-black'
+              onClick={() => signIn()}
+            >
               Sign In
             </button>
           </div>
