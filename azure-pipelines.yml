@@ -5,18 +5,25 @@
 
 trigger:
 - main
-
-pool:
+variables: 
   vmImage: ubuntu-latest
 
+stages:
+- stage: Build Stage
+  jobs: 
+  - job: Build
+    pool:
+     name: Defalut
+  
+      
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '10.x'
+      displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+    - script: |
+        npm install
+        npm run build
+      displayName: 'npm install and build'
