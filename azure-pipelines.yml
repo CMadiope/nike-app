@@ -5,7 +5,7 @@
 
 trigger:
 - main
-variables: 
+pool:
   vmImage: ubuntu-latest
 
 stages:
